@@ -13,11 +13,6 @@ include 'includes/header.php';
           <a href="businesses.php" class="btn btn-primary">Explore Products &#8594;</a>
           <a href="contact.php" class="btn btn-outline">Request a Quote</a>
         </div>
-        <div class="hero-stats">
-          <div class="stat-card"><div class="stat-num" data-target="500" data-suffix="+">0+</div><div class="stat-label">Products</div></div>
-          <div class="stat-card"><div class="stat-num" data-target="200" data-suffix="+">0+</div><div class="stat-label">Clients Served</div></div>
-          <div class="stat-card"><div class="stat-num" data-target="18" data-suffix="+">0+</div><div class="stat-label">Years of Excellence</div></div>
-        </div>
       </div>
       <div class="hero-visual">
         <div class="hero-logo-wrap">
@@ -30,6 +25,16 @@ include 'includes/header.php';
 
 <div class="ticker">
   <div class="ticker-inner">
+    <span class="ticker-item">Specialty Chemicals</span>
+    <span class="ticker-item">Industrial Chemicals</span>
+    <span class="ticker-item">Agro Chemicals</span>
+    <span class="ticker-item">Pharma Intermediates</span>
+    <span class="ticker-item">Water Treatment</span>
+    <span class="ticker-item">Cleaning Compounds</span>
+    <span class="ticker-item">Surface Treatment</span>
+    <span class="ticker-item">Paint Additives</span>
+    <span class="ticker-item">Food Grade Chemicals</span>
+    <span class="ticker-item">Textile Chemicals</span>
     <span class="ticker-item">Specialty Chemicals</span>
     <span class="ticker-item">Industrial Chemicals</span>
     <span class="ticker-item">Agro Chemicals</span>

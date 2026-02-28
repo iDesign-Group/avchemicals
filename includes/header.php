@@ -11,10 +11,6 @@
 </head>
 <body>
 
-    
-  </div>
-</div>
-
 <header class="header" id="header">
   <div class="container">
     <nav class="nav">
@@ -26,9 +22,9 @@
         </div>
       </a>
       <ul class="nav-menu" id="navMenu">
-        <li><a href="index.php">Home</a></li>
+        <li><a href="index.php" class="<?= $page==='index'?'active':'' ?>">Home</a></li>
         <li class="has-dropdown">
-          <a href="businesses.php">Businesses</a>
+          <a href="businesses.php" class="<?= $page==='businesses'?'active':'' ?>">Businesses</a>
           <ul class="dropdown">
             <li><a href="businesses.php#specialty">Specialty Chemicals</a></li>
             <li><a href="businesses.php#industrial">Industrial Chemicals</a></li>
@@ -39,7 +35,7 @@
           </ul>
         </li>
         <li class="has-dropdown">
-          <a href="industries.php">Industries</a>
+          <a href="industries.php" class="<?= $page==='industries'?'active':'' ?>">Industries</a>
           <ul class="dropdown">
             <li><a href="industries.php#textile">Textile</a></li>
             <li><a href="industries.php#pharma">Pharmaceuticals</a></li>
@@ -49,8 +45,8 @@
             <li><a href="industries.php#paint">Paint &amp; Coatings</a></li>
           </ul>
         </li>
-        <li><a href="sustainability.php">Sustainability</a></li>
-        <li><a href="about.php">About Us</a></li>
+        <li><a href="sustainability.php" class="<?= $page==='sustainability'?'active':'' ?>">Sustainability</a></li>
+        <li><a href="about.php" class="<?= $page==='about'?'active':'' ?>">About Us</a></li>
       </ul>
       <div class="nav-cta">
         <a href="contact.php" class="btn btn-primary">Contact Us</a>

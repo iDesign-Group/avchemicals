@@ -78,29 +78,7 @@ include 'includes/header.php';
       <h2 class="section-title">Chemical Solutions for Every Need</h2>
       <p class="section-sub">From specialty formulations to bulk industrial chemicals, our diverse portfolio is engineered for performance.</p>
     </div>
-    <?php
-    $products = [
-      ['icon'=>'&#9879;&#65039;','title'=>'Specialty Chemicals','desc'=>'High-performance formulations for advanced manufacturing, coatings, and precision applications.','tags'=>['Surface Treatment','Adhesives','Additives'],'link'=>'specialty','bg'=>'linear-gradient(135deg,var(--green-dark),var(--green-mid))'],
-      ['icon'=>'&#127981;','title'=>'Industrial Chemicals','desc'=>'Reliable bulk chemicals for manufacturing, processing, and industrial operations at scale.','tags'=>['Acids','Alkalis','Solvents'],'link'=>'industrial','bg'=>'linear-gradient(135deg,#4a2c0a,#8B6914)'],
-      ['icon'=>'&#127807;','title'=>'Agro Chemicals','desc'=>'Effective crop protection and nutrition solutions helping farmers maximize yield sustainably.','tags'=>['Pesticides','Fertilizers','Micronutrients'],'link'=>'agro','bg'=>'linear-gradient(135deg,#1a3a1a,#2d6a1a)'],
-      ['icon'=>'&#128138;','title'=>'Pharma Intermediates','desc'=>'GMP-compliant chemical intermediates for pharmaceutical manufacturers and API producers.','tags'=>['API Intermediates','Excipients'],'link'=>'pharma','bg'=>'linear-gradient(135deg,#0d2b4a,#1565C0)'],
-      ['icon'=>'&#129529;','title'=>'Cleaning Compounds','desc'=>'Industrial and institutional cleaning formulations for hygiene-critical environments.','tags'=>['Degreasers','Sanitizers','Descalers'],'link'=>'cleaning','bg'=>'linear-gradient(135deg,#2a1a4a,#5e35b1)'],
-      ['icon'=>'&#128167;','title'=>'Water Treatment','desc'=>'Effective coagulants, scale inhibitors, and biocides for industrial and municipal water systems.','tags'=>['Coagulants','Scale Inhibitors'],'link'=>'water','bg'=>'linear-gradient(135deg,#0a2a3a,#00695C)'],
-    ];
-    ?>
-    <div class="products-grid">
-      <?php foreach($products as $p): ?>
-      <div class="product-card">
-        <div class="product-card-header" style="background:<?= $p['bg'] ?>"><div class="product-icon"><?= $p['icon'] ?></div></div>
-        <div class="product-card-body">
-          <h3><?= $p['title'] ?></h3>
-          <p><?= $p['desc'] ?></p>
-          <?php foreach($p['tags'] as $t): ?><span class="product-tag"><?= $t ?></span><?php endforeach; ?>
-          <br><a href="businesses.php#<?= $p['link'] ?>" class="btn btn-green" style="margin-top:16px;padding:10px 20px;font-size:0.85rem">View Products &#8594;</a>
-        </div>
-      </div>
-      <?php endforeach; ?>
-    </div>
+    <div class="products-grid" id="products-ajax-grid"></div>
   </div>
 </section>
 

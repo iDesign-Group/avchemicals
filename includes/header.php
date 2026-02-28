@@ -69,3 +69,18 @@
     </nav>
   </div>
 </header>
+
+<script>
+  (function() {
+    var header = document.getElementById('header');
+    function onScroll() {
+      if (window.scrollY > 40) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  })();
+</script>

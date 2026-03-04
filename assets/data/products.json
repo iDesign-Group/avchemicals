@@ -1,0 +1,152 @@
+[
+  {
+    "id": "amino-acids",
+    "name": "Amino Acids",
+    "icon": "🧬",
+    "tagline": "Building blocks of life",
+    "description": "Essential and non-essential amino acids for food fortification, sports nutrition, and pharmaceutical applications. We source pharmaceutical-grade amino acids from certified global manufacturers.",
+    "items": [
+      {"name": "L-Glutamine", "desc": "Supports muscle recovery and gut health in sports nutrition formulations."},
+      {"name": "L-Lysine HCl", "desc": "Essential amino acid used in food fortification and animal feed supplements."},
+      {"name": "L-Tryptophan", "desc": "Precursor to serotonin, used in nutraceutical and pharmaceutical products."},
+      {"name": "Taurine", "desc": "Key ingredient in energy drinks, infant formula, and cardiac supplements."},
+      {"name": "L-Carnitine", "desc": "Supports fat metabolism; widely used in weight management and sports nutrition."}
+    ],
+    "applications": ["Sports Nutrition", "Animal Feed", "Pharmaceuticals", "Infant Formula"]
+  },
+  {
+    "id": "sweeteners",
+    "name": "Sweeteners & Sugar Substitutes",
+    "icon": "🍯",
+    "tagline": "Healthier sweetness, premium quality",
+    "description": "A comprehensive range of natural and artificial sweeteners including sugar alcohols, high-intensity sweeteners, and blends for the food and beverage industry.",
+    "items": [
+      {"name": "Sucralose", "desc": "Zero-calorie high-intensity sweetener, 600x sweeter than sugar."},
+      {"name": "Stevia Extract (Reb-A)", "desc": "Natural plant-based sweetener for clean-label products."},
+      {"name": "Aspartame", "desc": "Low-calorie sweetener for beverages, confectionery, and dairy products."},
+      {"name": "Xylitol", "desc": "Sugar alcohol with dental benefits, used in chewing gums and oral care."},
+      {"name": "Erythritol", "desc": "Zero-calorie sugar alcohol for keto-friendly and diabetic-safe products."}
+    ],
+    "applications": ["Beverages", "Confectionery", "Dairy", "Bakery", "Oral Care"]
+  },
+  {
+    "id": "vitamins-minerals",
+    "name": "Vitamins & Minerals",
+    "icon": "💊",
+    "tagline": "Essential nutrition, reliably sourced",
+    "description": "Complete portfolio of vitamins (A, B-complex, C, D, E, K) and essential minerals for nutraceutical, food fortification, and pharmaceutical applications.",
+    "items": [
+      {"name": "Vitamin C (Ascorbic Acid)", "desc": "Antioxidant vitamin for immune support and food preservation."},
+      {"name": "Vitamin D3 (Cholecalciferol)", "desc": "Fat-soluble vitamin for bone health and immune function."},
+      {"name": "Zinc Sulphate", "desc": "Essential mineral for immune support and wound healing."},
+      {"name": "Ferrous Fumarate", "desc": "Iron supplement for anemia prevention and food fortification."},
+      {"name": "Vitamin B12 (Cyanocobalamin)", "desc": "Essential for red blood cell formation and neurological function."}
+    ],
+    "applications": ["Nutraceuticals", "Food Fortification", "Pharmaceuticals", "Animal Nutrition"]
+  },
+  {
+    "id": "food-beverage",
+    "name": "Food & Beverage Ingredients",
+    "icon": "🥤",
+    "tagline": "Taste, texture, and quality",
+    "description": "Functional food ingredients including emulsifiers, stabilisers, preservatives, acidulants, and flavour enhancers for the modern food and beverage industry.",
+    "items": [
+      {"name": "Citric Acid (Anhydrous/Monohydrate)", "desc": "Versatile acidulant for beverages, confectionery, and preservation."},
+      {"name": "Sodium Benzoate", "desc": "Food-grade preservative for acidic foods and beverages."},
+      {"name": "Xanthan Gum", "desc": "Thickener and stabiliser for sauces, dressings, and dairy products."},
+      {"name": "Malic Acid", "desc": "Flavour enhancer providing tart taste in beverages and candies."},
+      {"name": "Potassium Sorbate", "desc": "Widely used preservative for baked goods, wines, and dairy."}
+    ],
+    "applications": ["Beverages", "Confectionery", "Dairy", "Bakery", "Sauces & Dressings"]
+  },
+  {
+    "id": "excipients",
+    "name": "Excipients & Binders",
+    "icon": "⚗️",
+    "tagline": "Formulation excellence",
+    "description": "Pharmaceutical and nutraceutical grade excipients including binders, fillers, disintegrants, and coating agents for tablet and capsule manufacturing.",
+    "items": [
+      {"name": "Microcrystalline Cellulose (MCC)", "desc": "Leading binder and filler for direct compression tablets."},
+      {"name": "Croscarmellose Sodium", "desc": "Super-disintegrant for rapid tablet dissolution."},
+      {"name": "Povidone (PVP K-30)", "desc": "Versatile binder for wet granulation and coating applications."},
+      {"name": "Magnesium Stearate", "desc": "Lubricant for tablet and capsule manufacturing."},
+      {"name": "HPMC (Hypromellose)", "desc": "Coating agent and controlled-release matrix former."}
+    ],
+    "applications": ["Tablet Manufacturing", "Capsule Filling", "Nutraceuticals", "Pharmaceuticals"]
+  },
+  {
+    "id": "nutraceutical",
+    "name": "Nutraceutical Raw Materials",
+    "icon": "🌿",
+    "tagline": "Nature meets science",
+    "description": "Premium raw materials for dietary supplements, functional foods, and wellness products including herbal extracts, probiotics support, and specialty nutrients.",
+    "items": [
+      {"name": "Coenzyme Q10 (CoQ10)", "desc": "Powerful antioxidant for heart health and cellular energy production."},
+      {"name": "Omega-3 Fish Oil Powder", "desc": "Microencapsulated EPA/DHA for heart and brain health supplements."},
+      {"name": "Glucosamine Sulphate", "desc": "Joint health ingredient for sports and senior nutrition."},
+      {"name": "Curcumin Extract (95%)", "desc": "Anti-inflammatory turmeric extract for wellness supplements."},
+      {"name": "Collagen Peptides", "desc": "Hydrolyzed collagen for skin, hair, nail, and joint health."}
+    ],
+    "applications": ["Dietary Supplements", "Functional Foods", "Sports Nutrition", "Anti-Aging"]
+  },
+  {
+    "id": "solvents",
+    "name": "Organic Solvents & Thinners",
+    "icon": "🧪",
+    "tagline": "Industrial-grade purity",
+    "description": "High-purity organic solvents and thinners for pharmaceutical synthesis, coatings, adhesives, and industrial cleaning applications.",
+    "items": [
+      {"name": "Isopropyl Alcohol (IPA)", "desc": "Versatile solvent for pharmaceutical, cosmetic, and industrial use."},
+      {"name": "Ethyl Acetate", "desc": "Low-toxicity solvent for coatings, adhesives, and extraction."},
+      {"name": "Methanol", "desc": "Industrial solvent for chemical synthesis and fuel applications."},
+      {"name": "Acetone", "desc": "Fast-evaporating solvent for cleaning, coatings, and lab use."},
+      {"name": "Dichloromethane (DCM)", "desc": "Powerful solvent for pharmaceutical extraction and paint removal."}
+    ],
+    "applications": ["Pharmaceuticals", "Paints & Coatings", "Adhesives", "Industrial Cleaning"]
+  },
+  {
+    "id": "feed-poultry",
+    "name": "Feed & Poultry Additives",
+    "icon": "🐔",
+    "tagline": "Healthy animals, healthy business",
+    "description": "Nutritional additives, growth promoters, and health supplements for poultry, cattle, aquaculture, and pet food industries.",
+    "items": [
+      {"name": "DL-Methionine", "desc": "Essential amino acid for poultry growth and egg production."},
+      {"name": "Choline Chloride 60%", "desc": "Vital nutrient for liver function and fat metabolism in livestock."},
+      {"name": "Lysine Sulphate", "desc": "Cost-effective lysine source for swine and poultry feed."},
+      {"name": "Betaine Anhydrous", "desc": "Osmoprotectant that improves feed conversion and meat quality."},
+      {"name": "Calcium Propionate", "desc": "Feed-grade preservative preventing mould growth in animal feed."}
+    ],
+    "applications": ["Poultry Feed", "Cattle Feed", "Aquaculture", "Pet Food"]
+  },
+  {
+    "id": "natural-polymers",
+    "name": "Natural Polymers & Modified Derivatives",
+    "icon": "🔗",
+    "tagline": "Versatile biopolymer solutions",
+    "description": "Natural and modified polymers including cellulose derivatives, starches, and gums for pharmaceutical, food, cosmetic, and industrial applications.",
+    "items": [
+      {"name": "Sodium CMC (Carboxymethyl Cellulose)", "desc": "Thickener and stabiliser for food, pharma, and personal care."},
+      {"name": "Hydroxypropyl Starch", "desc": "Modified starch for improved texture in food products."},
+      {"name": "Guar Gum", "desc": "Natural thickener for food, textile, and oil drilling industries."},
+      {"name": "Sodium Alginate", "desc": "Seaweed-derived polymer for food encapsulation and wound care."},
+      {"name": "Ethyl Cellulose", "desc": "Film-forming polymer for controlled-release pharma coatings."}
+    ],
+    "applications": ["Food Processing", "Pharmaceuticals", "Cosmetics", "Textiles", "Oil & Gas"]
+  },
+  {
+    "id": "dairy-protein",
+    "name": "Dairy & Protein Concentrates",
+    "icon": "🥛",
+    "tagline": "Pure protein, premium source",
+    "description": "High-quality dairy proteins, whey concentrates, casein, and plant-based protein sources for sports nutrition, bakery, and food manufacturing.",
+    "items": [
+      {"name": "Whey Protein Concentrate (WPC 80)", "desc": "High-quality protein source for sports nutrition and functional foods."},
+      {"name": "Skimmed Milk Powder (SMP)", "desc": "Versatile dairy ingredient for bakery, confectionery, and beverages."},
+      {"name": "Sodium Caseinate", "desc": "Milk protein for coffee whiteners, meat processing, and nutrition bars."},
+      {"name": "Soy Protein Isolate (SPI 90)", "desc": "Plant-based protein for vegetarian and vegan food applications."},
+      {"name": "Lactose (Pharma Grade)", "desc": "Pharmaceutical-grade filler and carrier for tablet manufacturing."}
+    ],
+    "applications": ["Sports Nutrition", "Bakery", "Beverages", "Infant Nutrition", "Pharmaceuticals"]
+  }
+]

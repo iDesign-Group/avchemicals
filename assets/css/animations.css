@@ -1,0 +1,221 @@
+/* ============================================
+   AV CHEMICALS — Animations
+   ============================================ */
+
+/* Scroll Reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered reveals */
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
+
+/* Fade In */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease forwards;
+}
+
+/* Fade Up */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-up {
+  animation: fadeUp 0.6s ease forwards;
+}
+
+/* Scale In */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.scale-in {
+  animation: scaleIn 0.5s ease forwards;
+}
+
+/* Slide In Left */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-in-left {
+  animation: slideInLeft 0.6s ease forwards;
+}
+
+/* Slide In Right */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-in-right {
+  animation: slideInRight 0.6s ease forwards;
+}
+
+/* Gold Glow Pulse */
+@keyframes goldGlow {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(255, 179, 0, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(255, 179, 0, 0.5);
+  }
+}
+
+.glow-gold {
+  animation: goldGlow 3s ease-in-out infinite;
+}
+
+/* Green Glow Pulse */
+@keyframes greenGlow {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(46, 125, 50, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(46, 125, 50, 0.5);
+  }
+}
+
+.glow-green {
+  animation: greenGlow 3s ease-in-out infinite;
+}
+
+/* Text Shimmer */
+@keyframes textShimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.text-shimmer {
+  background: linear-gradient(90deg, 
+    var(--gold-primary) 0%, 
+    var(--white-text) 50%, 
+    var(--gold-primary) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: textShimmer 4s linear infinite;
+}
+
+/* Float Animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+.float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Rotate Continuous */
+@keyframes rotateContinuous {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Border Glow Animation */
+@keyframes borderGlow {
+  0%, 100% {
+    border-color: rgba(255, 179, 0, 0.3);
+  }
+  50% {
+    border-color: rgba(255, 179, 0, 0.8);
+  }
+}
+
+.border-glow {
+  animation: borderGlow 2s ease-in-out infinite;
+}
+
+/* Product card fade transition */
+.products-grid .product-card {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.products-grid.filtering .product-card {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+/* Counter animation helper */
+.counter-animated {
+  display: inline-block;
+}
+
+/* Hexagon hover glow */
+.hex-tile::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  background: linear-gradient(135deg, rgba(255, 179, 0, 0.1), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.hex-tile:hover::after {
+  opacity: 1;
+}
+
+/* Testimonial slide */
+@keyframes slideTestimonial {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Line divider animation */
+@keyframes lineExpand {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.animated-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+  animation: lineExpand 1s ease forwards;
+}

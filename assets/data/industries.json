@@ -1,0 +1,44 @@
+[
+  {
+    "id": "food-beverage",
+    "name": "Food & Beverage",
+    "icon": "🍽️",
+    "description": "We supply a wide range of food-grade ingredients including preservatives, acidulants, sweeteners, emulsifiers, and flavour enhancers that meet FSSAI and international food safety standards. Our ingredients power everything from packaged beverages to bakery products and dairy formulations.",
+    "relevant_products": ["Citric Acid", "Xanthan Gum", "Sucralose", "Stevia Extract", "Sodium Benzoate", "Malic Acid", "Potassium Sorbate"]
+  },
+  {
+    "id": "nutraceuticals",
+    "name": "Nutraceuticals",
+    "icon": "💪",
+    "description": "From amino acids and vitamins to specialty ingredients like CoQ10 and collagen peptides, we provide pharmaceutical-grade raw materials for dietary supplements, functional foods, and sports nutrition products. All materials come with Certificates of Analysis (COA) and comply with regulatory requirements.",
+    "relevant_products": ["L-Glutamine", "Vitamin C", "Omega-3 Fish Oil Powder", "Coenzyme Q10", "Collagen Peptides", "Curcumin Extract", "Glucosamine Sulphate"]
+  },
+  {
+    "id": "cosmetics",
+    "name": "Cosmetics & Personal Care",
+    "icon": "✨",
+    "description": "We offer cosmetic-grade raw materials including natural polymers, emollients, preservatives, and active ingredients for skincare, haircare, and personal hygiene products. Our materials are sourced from manufacturers who comply with EU Cosmetics Regulation standards.",
+    "relevant_products": ["Sodium CMC", "HPMC", "Sodium Alginate", "Isopropyl Alcohol", "Guar Gum", "Collagen Peptides"]
+  },
+  {
+    "id": "pharmaceuticals",
+    "name": "Pharmaceuticals",
+    "icon": "💊",
+    "description": "AV Chemical supplies pharmaceutical-grade excipients, active pharmaceutical ingredients (APIs), and process chemicals to leading pharma manufacturers. Our products meet IP, BP, USP, and EP grade specifications with full documentation and regulatory compliance.",
+    "relevant_products": ["Microcrystalline Cellulose", "Croscarmellose Sodium", "Povidone", "Magnesium Stearate", "HPMC", "Lactose", "Ethyl Cellulose"]
+  },
+  {
+    "id": "feed-poultry",
+    "name": "Feed & Poultry",
+    "icon": "🐔",
+    "description": "We are a trusted supplier of animal nutrition additives including essential amino acids, vitamins, minerals, and feed preservatives for the poultry, cattle, aquaculture, and pet food industries. Our products help improve feed conversion ratios and animal health outcomes.",
+    "relevant_products": ["DL-Methionine", "Choline Chloride", "Lysine Sulphate", "Betaine Anhydrous", "Calcium Propionate", "Taurine", "L-Lysine HCl"]
+  },
+  {
+    "id": "industrial",
+    "name": "Industrial Chemicals",
+    "icon": "🏭",
+    "description": "Our industrial chemical portfolio includes high-purity organic solvents, thinners, and process chemicals for manufacturing, coatings, adhesives, and cleaning applications. We ensure consistent supply with bulk packaging options and competitive pricing.",
+    "relevant_products": ["Isopropyl Alcohol", "Ethyl Acetate", "Methanol", "Acetone", "Dichloromethane", "Guar Gum"]
+  }
+]

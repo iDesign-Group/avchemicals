@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "quote": "AV Chemical has been our trusted partner for sourcing amino acids and nutraceutical raw materials. Their consistent quality and timely deliveries have helped us scale our supplement brand with confidence.",
+    "author": "Rajesh Mehta",
+    "company": "NutriVita Supplements Pvt. Ltd.",
+    "designation": "Director - Procurement"
+  },
+  {
+    "id": 2,
+    "quote": "We switched to AV Chemical for our food-grade preservatives and sweeteners two years ago. The quality documentation, competitive pricing, and responsive team have made them our preferred vendor.",
+    "author": "Priya Sharma",
+    "company": "FreshBrew Beverages",
+    "designation": "Quality Assurance Manager"
+  },
+  {
+    "id": 3,
+    "quote": "Their range of pharmaceutical excipients is impressive. From MCC to HPMC, we source all our tablet manufacturing raw materials through AV Chemical. Reliable quality and excellent service every time.",
+    "author": "Dr. Anil Kapoor",
+    "company": "MedForm Pharmaceuticals",
+    "designation": "Head of Formulation R&D"
+  },
+  {
+    "id": 4,
+    "quote": "AV Chemical understands the poultry feed industry well. Their DL-Methionine and choline chloride supply has been consistently on specification, helping us maintain our feed quality standards.",
+    "author": "Sunil Agarwal",
+    "company": "GreenFeeds India",
+    "designation": "Operations Head"
+  }
+]

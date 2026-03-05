@@ -27,7 +27,7 @@
   <section class="cta-strip">
     <div class="container">
       <h2>Can't Find What You're Looking For?</h2>
-      <p style="color: rgba(255,255,255,0.85); margin-bottom: 24px;">Contact us for custom sourcing requirements — we can procure almost any chemical raw material.</p>
+      <p style="color: rgba(255,255,255,0.85); margin-bottom: 24px;">Contact us for custom sourcing requirements &mdash; we can procure almost any chemical raw material.</p>
       <a href="<?php echo $base_url; ?>/contact.php" class="btn btn-dark">Request a Quote</a>
     </div>
   </section>
@@ -50,17 +50,21 @@
           var card = document.createElement('a');
           card.className = 'category-card reveal';
           card.href = window.BASE_URL + '/category.php?cat=' + encodeURIComponent(cat.id);
+
+          var imgHtml = cat.image
+            ? '<div class="cat-card-img"><img src="' + cat.image + '" alt="' + cat.name + '" loading="lazy"></div>'
+            : '<div class="cat-card-img cat-card-img--fallback">' + cat.icon + '</div>';
+
           card.innerHTML =
-            '<div class="cat-card-icon">' + cat.icon + '</div>' +
+            imgHtml +
             '<div class="cat-card-body">' +
               '<h3>' + cat.name + '</h3>' +
               '<p class="cat-card-tagline">' + cat.tagline + '</p>' +
               '<span class="cat-card-count">' + cat.items.length + ' Products</span>' +
             '</div>' +
-            '<div class="cat-card-arrow">→</div>';
+            '<div class="cat-card-arrow">&rarr;</div>';
           grid.appendChild(card);
         });
-        // Trigger reveal for dynamically added cards
         setTimeout(function () {
           grid.querySelectorAll('.reveal').forEach(function (el) {
             el.classList.add('revealed');

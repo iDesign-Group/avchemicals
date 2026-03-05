@@ -3,6 +3,7 @@
     "id": "amino-acids",
     "name": "Amino Acids",
     "icon": "🧬",
+    "image": "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=400&h=260&fit=crop&auto=format",
     "tagline": "Building blocks of life",
     "description": "Essential and non-essential amino acids for food fortification, sports nutrition, and pharmaceutical applications. We source pharmaceutical-grade amino acids from certified global manufacturers.",
     "items": [
@@ -18,6 +19,7 @@
     "id": "sweeteners",
     "name": "Sweeteners & Sugar Substitutes",
     "icon": "🍯",
+    "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=260&fit=crop&auto=format",
     "tagline": "Healthier sweetness, premium quality",
     "description": "A comprehensive range of natural and artificial sweeteners including sugar alcohols, high-intensity sweeteners, and blends for the food and beverage industry.",
     "items": [
@@ -33,6 +35,7 @@
     "id": "vitamins-minerals",
     "name": "Vitamins & Minerals",
     "icon": "💊",
+    "image": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400&h=260&fit=crop&auto=format",
     "tagline": "Essential nutrition, reliably sourced",
     "description": "Complete portfolio of vitamins (A, B-complex, C, D, E, K) and essential minerals for nutraceutical, food fortification, and pharmaceutical applications.",
     "items": [
@@ -48,6 +51,7 @@
     "id": "food-beverage",
     "name": "Food & Beverage Ingredients",
     "icon": "🥤",
+    "image": "https://images.unsplash.com/photo-1556742031-c6961e8560b0?w=400&h=260&fit=crop&auto=format",
     "tagline": "Taste, texture, and quality",
     "description": "Functional food ingredients including emulsifiers, stabilisers, preservatives, acidulants, and flavour enhancers for the modern food and beverage industry.",
     "items": [
@@ -63,6 +67,7 @@
     "id": "excipients",
     "name": "Excipients & Binders",
     "icon": "⚗️",
+    "image": "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=260&fit=crop&auto=format",
     "tagline": "Formulation excellence",
     "description": "Pharmaceutical and nutraceutical grade excipients including binders, fillers, disintegrants, and coating agents for tablet and capsule manufacturing.",
     "items": [
@@ -78,6 +83,7 @@
     "id": "nutraceutical",
     "name": "Nutraceutical Raw Materials",
     "icon": "🌿",
+    "image": "https://images.unsplash.com/photo-1471193945509-9ad0617afabf?w=400&h=260&fit=crop&auto=format",
     "tagline": "Nature meets science",
     "description": "Premium raw materials for dietary supplements, functional foods, and wellness products including herbal extracts, probiotics support, and specialty nutrients.",
     "items": [
@@ -93,6 +99,7 @@
     "id": "solvents",
     "name": "Organic Solvents & Thinners",
     "icon": "🧪",
+    "image": "https://images.unsplash.com/photo-1603126857599-f6e157fa2fe6?w=400&h=260&fit=crop&auto=format",
     "tagline": "Industrial-grade purity",
     "description": "High-purity organic solvents and thinners for pharmaceutical synthesis, coatings, adhesives, and industrial cleaning applications.",
     "items": [
@@ -108,6 +115,7 @@
     "id": "feed-poultry",
     "name": "Feed & Poultry Additives",
     "icon": "🐔",
+    "image": "https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?w=400&h=260&fit=crop&auto=format",
     "tagline": "Healthy animals, healthy business",
     "description": "Nutritional additives, growth promoters, and health supplements for poultry, cattle, aquaculture, and pet food industries.",
     "items": [
@@ -123,6 +131,7 @@
     "id": "natural-polymers",
     "name": "Natural Polymers & Modified Derivatives",
     "icon": "🔗",
+    "image": "https://images.unsplash.com/photo-1578496480157-697fc14d2e55?w=400&h=260&fit=crop&auto=format",
     "tagline": "Versatile biopolymer solutions",
     "description": "Natural and modified polymers including cellulose derivatives, starches, and gums for pharmaceutical, food, cosmetic, and industrial applications.",
     "items": [
@@ -138,6 +147,7 @@
     "id": "dairy-protein",
     "name": "Dairy & Protein Concentrates",
     "icon": "🥛",
+    "image": "https://images.unsplash.com/photo-1563636619-e9143da7973b?w=400&h=260&fit=crop&auto=format",
     "tagline": "Pure protein, premium source",
     "description": "High-quality dairy proteins, whey concentrates, casein, and plant-based protein sources for sports nutrition, bakery, and food manufacturing.",
     "items": [

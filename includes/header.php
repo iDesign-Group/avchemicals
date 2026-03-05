@@ -115,7 +115,6 @@ if ($base_url === '' || $base_url === '.') {
   <nav class="navbar">
     <a href="<?php echo $base_url; ?>/index.php" class="nav-brand">
       <img src="<?php echo $base_url; ?>/assets/images/logo.png" alt="AV Chemical Logo" class="nav-logo" onerror="this.style.display='none'">
-      <span class="nav-brand-text">A.V. Chemical</span>
     </a>
 
     <div class="nav-menu">

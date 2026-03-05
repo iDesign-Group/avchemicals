@@ -10,28 +10,15 @@
     </div>
   </section>
 
-  <!-- ====== PRODUCT CONTROLS & GRID ====== -->
-  <section style="background: var(--grey-section); padding-top: 40px;">
+  <!-- ====== CATEGORY GRID ====== -->
+  <section style="background: var(--off-white); padding: 60px 0 80px;">
     <div class="container">
-      <!-- Search & Filter Controls -->
-      <div class="product-controls reveal">
-        <div class="search-box">
-          <input type="text" id="productSearch" placeholder="Search products..." autocomplete="off">
-        </div>
+      <div class="section-heading reveal">
+        <h2>Browse by Category</h2>
+        <p>Select a category to explore products in detail</p>
       </div>
-
-      <!-- Category Tabs -->
-      <div class="category-tabs reveal" id="categoryTabs">
-        <!-- Built dynamically by product-filter.js -->
-      </div>
-
-      <!-- Products Grid -->
-      <div class="products-grid mt-40" id="productsGrid">
-        <!-- Rendered dynamically by product-filter.js -->
-        <div class="no-results">
-          <h3>Loading products...</h3>
-          <p>Please wait while we fetch the product catalogue.</p>
-        </div>
+      <div class="category-cards-grid" id="categoryCardsGrid">
+        <div class="no-results"><h3>Loading categories...</h3></div>
       </div>
     </div>
   </section>
@@ -40,9 +27,50 @@
   <section class="cta-strip">
     <div class="container">
       <h2>Can't Find What You're Looking For?</h2>
-      <p style="color: var(--white-text); margin-bottom: 24px;">Contact us for custom sourcing requirements — we can procure almost any chemical raw material.</p>
+      <p style="color: rgba(255,255,255,0.85); margin-bottom: 24px;">Contact us for custom sourcing requirements — we can procure almost any chemical raw material.</p>
       <a href="<?php echo $base_url; ?>/contact.php" class="btn btn-dark">Request a Quote</a>
     </div>
   </section>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var grid = document.getElementById('categoryCardsGrid');
+    if (!grid) return;
+
+    fetch(window.BASE_URL + '/api/get_products.php')
+      .then(function (r) { return r.json(); })
+      .then(function (resp) {
+        var cats = resp.data || [];
+        if (!cats.length) {
+          grid.innerHTML = '<div class="no-results"><h3>No categories found</h3></div>';
+          return;
+        }
+        grid.innerHTML = '';
+        cats.forEach(function (cat) {
+          var card = document.createElement('a');
+          card.className = 'category-card reveal';
+          card.href = window.BASE_URL + '/category.php?cat=' + encodeURIComponent(cat.id);
+          card.innerHTML =
+            '<div class="cat-card-icon">' + cat.icon + '</div>' +
+            '<div class="cat-card-body">' +
+              '<h3>' + cat.name + '</h3>' +
+              '<p class="cat-card-tagline">' + cat.tagline + '</p>' +
+              '<span class="cat-card-count">' + cat.items.length + ' Products</span>' +
+            '</div>' +
+            '<div class="cat-card-arrow">→</div>';
+          grid.appendChild(card);
+        });
+        // Trigger reveal for dynamically added cards
+        setTimeout(function () {
+          grid.querySelectorAll('.reveal').forEach(function (el) {
+            el.classList.add('revealed');
+          });
+        }, 100);
+      })
+      .catch(function () {
+        grid.innerHTML = '<div class="no-results"><h3>Unable to load categories</h3><p>Please refresh the page.</p></div>';
+      });
+  });
+  </script>
 
 <?php include 'includes/footer.php'; ?>

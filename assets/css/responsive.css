@@ -69,35 +69,63 @@
     padding: 10px 20px;
   }
 
+  /* Full-screen mobile nav menu */
   .nav-menu {
     position: fixed;
     top: 0;
-    right: -100%;
-    width: 280px;
+    left: 0;
+    right: 0;
+    width: 100%;
     height: 100vh;
-    background: rgba(10, 10, 10, 0.95);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background: linear-gradient(150deg, #FFFFFF 0%, #FFF9EC 50%, #E8F5E9 100%);
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 20px;
-    transition: right 0.4s ease;
+    gap: 8px;
+    transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.4s ease;
     z-index: 999;
-    border-left: 1px solid rgba(255, 179, 0, 0.2);
+    border-left: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    pointer-events: none;
   }
 
   .nav-menu.active {
-    right: 0;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: all;
   }
 
   .nav-link {
-    font-size: 16px;
-    padding: 12px 24px;
+    font-size: 18px;
+    letter-spacing: 3px;
+    padding: 16px 32px;
+    color: var(--text-dark);
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    color: var(--gold-primary);
   }
 
   .hamburger {
     display: flex;
+    z-index: 1001;
+    position: relative;
+  }
+
+  /* Keep hamburger & logo above the nav overlay */
+  .nav-brand {
+    position: relative;
+    z-index: 1001;
+  }
+
+  .nav-logo {
+    height: 52px;
   }
 
   .hero {
@@ -274,13 +302,8 @@
     font-size: 10px;
   }
 
-  .nav-brand-text {
-    font-size: 13px;
-    letter-spacing: 1px;
-  }
-
   .nav-logo {
-    height: 34px;
+    height: 46px;
   }
 
   .hex-grid {

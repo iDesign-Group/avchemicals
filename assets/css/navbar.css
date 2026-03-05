@@ -1,5 +1,5 @@
 /* ============================================
-   AV CHEMICALS — Navbar Styles
+   AV CHEMICALS — Navbar Styles (Light Elegant)
    ============================================ */
 
 .navbar {
@@ -16,12 +16,12 @@
 }
 
 .navbar.scrolled {
-  background: rgba(10, 10, 10, 0.85);
+  background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--gold-primary);
-  box-shadow: 0 4px 30px rgba(255, 179, 0, 0.1);
-  padding: 12px 40px;
+  border-bottom: 1px solid rgba(212, 148, 10, 0.2);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  padding: 10px 40px;
 }
 
 .nav-brand {
@@ -33,7 +33,7 @@
 .nav-logo {
   height: 42px;
   width: auto;
-  filter: drop-shadow(0 0 8px rgba(255, 179, 0, 0.3));
+  filter: drop-shadow(0 2px 6px rgba(212, 148, 10, 0.2));
 }
 
 .nav-brand-text {
@@ -51,7 +51,7 @@
 }
 
 .nav-link {
-  color: var(--white-text);
+  color: var(--text-dark);
   font-family: var(--font-heading);
   font-size: 13px;
   letter-spacing: 1.5px;
@@ -72,18 +72,12 @@
   transition: width 0.3s ease;
 }
 
-.nav-link:hover {
-  color: var(--gold-primary);
-}
+.nav-link:hover { color: var(--gold-primary); }
 
 .nav-link:hover::after,
-.nav-link.active::after {
-  width: 100%;
-}
+.nav-link.active::after { width: 100%; }
 
-.nav-link.active {
-  color: var(--gold-primary);
-}
+.nav-link.active { color: var(--gold-primary); }
 
 /* Hamburger */
 .hamburger {
@@ -105,30 +99,17 @@
   display: block;
 }
 
-.hamburger.active span:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
-}
-
-.hamburger.active span:nth-child(2) {
-  opacity: 0;
-}
-
-.hamburger.active span:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
-}
+.hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 /* Mobile overlay */
 .nav-overlay {
   display: none;
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(10, 10, 10, 0.8);
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(26, 26, 46, 0.5);
   z-index: 998;
 }
 
-.nav-overlay.active {
-  display: block;
-}
+.nav-overlay.active { display: block; }

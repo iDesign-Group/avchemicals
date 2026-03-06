@@ -4,21 +4,52 @@
 
 document.addEventListener('DOMContentLoaded', function () {
 
-  var productsGrid = document.getElementById('productsGrid');
-  var categoryTabs = document.getElementById('categoryTabs');
-  var searchInput = document.getElementById('productSearch');
+  var productsGrid  = document.getElementById('productsGrid');
+  var categoriesGrid = document.getElementById('categoriesGrid');
+  var categoriesError = document.getElementById('categoriesError');
+  var categoryTabs  = document.getElementById('categoryTabs');
+  var searchInput   = document.getElementById('productSearch');
 
-  if (!productsGrid) return;
+  if (!productsGrid && !categoriesGrid) return;
 
-  var allProducts = [];
+  var allProducts   = [];
   var currentCategory = 'all';
-  var searchTerm = '';
+  var searchTerm    = '';
   var debounceTimer;
 
   // Fetch all products on load
   fetchProducts('all');
 
-  // Build category tabs
+  // ---- Render Category Cards Grid ----
+  function renderCategoryCards(data) {
+    if (!categoriesGrid) return;
+    categoriesGrid.innerHTML = '';
+
+    if (!data || data.length === 0) {
+      if (categoriesError) categoriesError.style.display = 'block';
+      return;
+    }
+
+    data.forEach(function (cat) {
+      var card = document.createElement('a');
+      card.className = 'category-card';
+      card.href = window.BASE_URL + '/products.php?cat=' + encodeURIComponent(cat.id);
+      card.setAttribute('aria-label', cat.name);
+
+      card.innerHTML =
+        '<div class="cat-card-icon">' + cat.icon + '</div>' +
+        '<div class="cat-card-body">' +
+          '<h3>' + cat.name + '</h3>' +
+          '<p class="cat-card-tagline">' + (cat.tagline || '') + '</p>' +
+          '<span class="cat-card-count">' + (cat.items ? cat.items.length : 0) + '+ Products</span>' +
+        '</div>' +
+        '<span class="cat-card-arrow">&rsaquo;</span>';
+
+      categoriesGrid.appendChild(card);
+    });
+  }
+
+  // ---- Build category tabs ----
   function buildCategoryTabs(data) {
     if (!categoryTabs) return;
     categoryTabs.innerHTML = '';
@@ -50,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Fetch products from API
+  // ---- Fetch products from API ----
   function fetchProducts(category) {
     var url = window.BASE_URL + '/api/get_products.php';
     if (category && category !== 'all') {
@@ -61,6 +92,11 @@ document.addEventListener('DOMContentLoaded', function () {
       .then(function (res) { return res.json(); })
       .then(function (response) {
         allProducts = response.data || [];
+
+        // Render category cards (Browse by Category section)
+        renderCategoryCards(allProducts);
+
+        // Build filter tabs and product list
         buildCategoryTabs(allProducts);
         renderProducts();
 
@@ -69,25 +105,39 @@ document.addEventListener('DOMContentLoaded', function () {
         var catParam = urlParams.get('cat');
         if (catParam) {
           currentCategory = catParam;
-          var activeTab = categoryTabs.querySelector('[data-category="' + catParam + '"]');
-          if (activeTab) {
-            categoryTabs.querySelectorAll('.cat-tab').forEach(function (t) {
-              t.classList.remove('active');
-            });
-            activeTab.classList.add('active');
+          if (categoryTabs) {
+            var activeTab = categoryTabs.querySelector('[data-category="' + catParam + '"]');
+            if (activeTab) {
+              categoryTabs.querySelectorAll('.cat-tab').forEach(function (t) {
+                t.classList.remove('active');
+              });
+              activeTab.classList.add('active');
+            }
           }
           renderProducts();
+
+          // Scroll to products section smoothly
+          var productsSection = productsGrid ? productsGrid.closest('section') : null;
+          if (productsSection) {
+            setTimeout(function () {
+              productsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 400);
+          }
         }
       })
       .catch(function (err) {
         console.log('Product fetch error:', err);
-        productsGrid.innerHTML = '<div class="no-results"><h3>Unable to load products</h3><p>Please try refreshing the page.</p></div>';
+        if (categoriesError) categoriesError.style.display = 'block';
+        if (productsGrid) {
+          productsGrid.innerHTML = '<div class="no-results"><h3>Unable to load products</h3><p>Please try refreshing the page.</p></div>';
+        }
       });
   }
 
-  // Render product cards
+  // ---- Render product cards ----
   function renderProducts() {
-    // Add filtering class for animation
+    if (!productsGrid) return;
+
     productsGrid.classList.add('filtering');
 
     setTimeout(function () {
@@ -117,18 +167,16 @@ document.addEventListener('DOMContentLoaded', function () {
     }, 300);
   }
 
-  // Get filtered products based on category and search
+  // ---- Get filtered products based on category and search ----
   function getFilteredProducts() {
     var filtered = allProducts;
 
-    // Filter by category
     if (currentCategory !== 'all') {
       filtered = filtered.filter(function (cat) {
         return cat.id === currentCategory;
       });
     }
 
-    // Filter by search term
     if (searchTerm.length > 0) {
       var term = searchTerm.toLowerCase();
       filtered = filtered.map(function (cat) {
@@ -154,7 +202,7 @@ document.addEventListener('DOMContentLoaded', function () {
     return filtered;
   }
 
-  // Search with debounce
+  // ---- Search with debounce ----
   if (searchInput) {
     searchInput.addEventListener('input', function () {
       clearTimeout(debounceTimer);

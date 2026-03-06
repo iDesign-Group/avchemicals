@@ -161,9 +161,9 @@
         <h2 id="team-heading">Our Leadership Team</h2>
         <p>Experienced professionals driving A.V. Chemical's growth</p>
       </div>
-      <div class="team-grid">
+      <div class="team-grid" style="justify-content:center;">
         <div class="team-card reveal">
-          <div class="team-avatar">VS</div>
+          <div class="team-avatar">DG</div>
           <h3>Deepak Gandhi</h3>
           <p class="role">Partner</p>
         </div>
@@ -173,7 +173,7 @@
           <p class="role">Partner</p>
         </div>
         <div class="team-card reveal reveal-delay-2">
-          <div class="team-avatar">RM</div>
+          <div class="team-avatar">VS</div>
           <h3>Virang Sanghvi</h3>
           <p class="role">Partner</p>
         </div>

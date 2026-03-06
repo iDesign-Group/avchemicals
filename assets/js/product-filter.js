@@ -4,17 +4,17 @@
 
 document.addEventListener('DOMContentLoaded', function () {
 
-  var productsGrid  = document.getElementById('productsGrid');
-  var categoriesGrid = document.getElementById('categoriesGrid');
+  var productsGrid    = document.getElementById('productsGrid');
+  var categoriesGrid  = document.getElementById('categoriesGrid');
   var categoriesError = document.getElementById('categoriesError');
-  var categoryTabs  = document.getElementById('categoryTabs');
-  var searchInput   = document.getElementById('productSearch');
+  var categoryTabs    = document.getElementById('categoryTabs');
+  var searchInput     = document.getElementById('productSearch');
 
   if (!productsGrid && !categoriesGrid) return;
 
-  var allProducts   = [];
+  var allProducts     = [];
   var currentCategory = 'all';
-  var searchTerm    = '';
+  var searchTerm      = '';
   var debounceTimer;
 
   // Fetch all products on load
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
     data.forEach(function (cat) {
       var card = document.createElement('a');
       card.className = 'category-card';
-      card.href = window.BASE_URL + '/products.php?cat=' + encodeURIComponent(cat.id);
+      card.href = window.BASE_URL + '/category.php?cat=' + encodeURIComponent(cat.id);
       card.setAttribute('aria-label', cat.name);
 
       card.innerHTML =
@@ -68,7 +68,6 @@ document.addEventListener('DOMContentLoaded', function () {
       categoryTabs.appendChild(tab);
     });
 
-    // Attach click handlers
     categoryTabs.querySelectorAll('.cat-tab').forEach(function (tab) {
       tab.addEventListener('click', function () {
         categoryTabs.querySelectorAll('.cat-tab').forEach(function (t) {
@@ -93,30 +92,22 @@ document.addEventListener('DOMContentLoaded', function () {
       .then(function (response) {
         allProducts = response.data || [];
 
-        // Render category cards (Browse by Category section)
         renderCategoryCards(allProducts);
-
-        // Build filter tabs and product list
         buildCategoryTabs(allProducts);
         renderProducts();
 
-        // Check URL for category filter
-        var urlParams = new URLSearchParams(window.location.search);
-        var catParam = urlParams.get('cat');
+        var urlParams  = new URLSearchParams(window.location.search);
+        var catParam   = urlParams.get('cat');
         if (catParam) {
           currentCategory = catParam;
           if (categoryTabs) {
             var activeTab = categoryTabs.querySelector('[data-category="' + catParam + '"]');
             if (activeTab) {
-              categoryTabs.querySelectorAll('.cat-tab').forEach(function (t) {
-                t.classList.remove('active');
-              });
+              categoryTabs.querySelectorAll('.cat-tab').forEach(function (t) { t.classList.remove('active'); });
               activeTab.classList.add('active');
             }
           }
           renderProducts();
-
-          // Scroll to products section smoothly
           var productsSection = productsGrid ? productsGrid.closest('section') : null;
           if (productsSection) {
             setTimeout(function () {
@@ -137,19 +128,15 @@ document.addEventListener('DOMContentLoaded', function () {
   // ---- Render product cards ----
   function renderProducts() {
     if (!productsGrid) return;
-
     productsGrid.classList.add('filtering');
-
     setTimeout(function () {
       productsGrid.innerHTML = '';
       var filtered = getFilteredProducts();
-
       if (filtered.length === 0) {
         productsGrid.innerHTML = '<div class="no-results"><h3>No products found</h3><p>Try adjusting your search or filter criteria.</p></div>';
         productsGrid.classList.remove('filtering');
         return;
       }
-
       filtered.forEach(function (category) {
         category.items.forEach(function (item) {
           var card = document.createElement('div');
@@ -162,43 +149,28 @@ document.addEventListener('DOMContentLoaded', function () {
           productsGrid.appendChild(card);
         });
       });
-
       productsGrid.classList.remove('filtering');
     }, 300);
   }
 
-  // ---- Get filtered products based on category and search ----
+  // ---- Get filtered products ----
   function getFilteredProducts() {
     var filtered = allProducts;
-
     if (currentCategory !== 'all') {
-      filtered = filtered.filter(function (cat) {
-        return cat.id === currentCategory;
-      });
+      filtered = filtered.filter(function (cat) { return cat.id === currentCategory; });
     }
-
     if (searchTerm.length > 0) {
       var term = searchTerm.toLowerCase();
       filtered = filtered.map(function (cat) {
         var matchingItems = cat.items.filter(function (item) {
-          return item.name.toLowerCase().indexOf(term) !== -1 ||
-                 item.desc.toLowerCase().indexOf(term) !== -1;
+          return item.name.toLowerCase().indexOf(term) !== -1 || item.desc.toLowerCase().indexOf(term) !== -1;
         });
-
         if (matchingItems.length > 0 || cat.name.toLowerCase().indexOf(term) !== -1) {
-          return {
-            id: cat.id,
-            name: cat.name,
-            icon: cat.icon,
-            items: matchingItems.length > 0 ? matchingItems : cat.items
-          };
+          return { id: cat.id, name: cat.name, icon: cat.icon, items: matchingItems.length > 0 ? matchingItems : cat.items };
         }
         return null;
-      }).filter(function (cat) {
-        return cat !== null;
-      });
+      }).filter(function (cat) { return cat !== null; });
     }
-
     return filtered;
   }
 

@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /includes/
+Disallow: /assets/data/
+
+Sitemap: https://avchemicals.com/sitemap.xml

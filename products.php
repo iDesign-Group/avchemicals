@@ -1,24 +1,74 @@
 <?php include 'includes/header.php'; ?>
 
-  <!-- ====== PRODUCTS HERO ====== -->
-  <section class="product-page-hero">
+  <!-- ====== PRODUCT PAGE HERO ====== -->
+  <section class="product-page-hero" aria-label="Products Hero">
     <div class="container">
-      <h1 class="text-gold reveal">Product Catalogue</h1>
-      <p class="reveal reveal-delay-1" style="max-width:600px; margin:16px auto 0;">
-        Explore our comprehensive range of 500+ chemical raw materials across 10 product categories.
-      </p>
+      <div class="cat-hero-icon" aria-hidden="true">🧪</div>
+      <h1 class="text-gold">Chemical Product Catalogue</h1>
+      <p style="max-width:640px; margin:16px auto 0; color:var(--text-muted);">Explore our comprehensive range of <strong>500+ premium chemical raw materials</strong> across 10 product categories — food grade, pharma grade, nutraceutical, industrial &amp; more. All products supplied with COA, MSDS &amp; TDS.</p>
     </div>
   </section>
 
-  <!-- ====== CATEGORY GRID ====== -->
-  <section style="background: var(--off-white); padding: 60px 0 80px;">
+  <!-- ====== BROWSE BY CATEGORY CARDS ====== -->
+  <section style="background:var(--white); padding:70px 0;" aria-labelledby="categories-heading">
     <div class="container">
-      <div class="section-heading reveal">
-        <h2>Browse by Category</h2>
-        <p>Select a category to explore products in detail</p>
+      <div class="section-heading">
+        <h2 id="categories-heading">Browse by Category</h2>
+        <p>Select a category to explore our chemical products in detail</p>
       </div>
-      <div class="category-cards-grid" id="categoryCardsGrid">
-        <div class="no-results"><h3>Loading categories...</h3></div>
+      <div id="categoriesGrid" class="category-cards-grid"></div>
+      <div id="categoriesError" class="no-results" style="display:none;">
+        <h3>Unable to load categories</h3>
+        <p>Please refresh the page.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== PRODUCT SEARCH + FILTER ====== -->
+  <section style="background:var(--surface); padding:70px 0;" aria-labelledby="products-filter-heading">
+    <div class="container">
+      <div class="section-heading">
+        <h2 id="products-filter-heading">Search Our Products</h2>
+        <p>Filter by category or search by name to find the exact chemical you need</p>
+      </div>
+      <div class="product-controls">
+        <div class="search-box">
+          <input type="text" id="productSearch" placeholder="Search chemicals, ingredients..." aria-label="Search products">
+        </div>
+        <div class="category-tabs" id="categoryTabs"></div>
+      </div>
+      <div class="products-grid" id="productsGrid"></div>
+    </div>
+  </section>
+
+  <!-- ====== SEO CONTENT ====== -->
+  <section style="background:var(--white); padding:70px 0;" aria-labelledby="why-buy-heading">
+    <div class="container">
+      <div class="section-heading">
+        <h2 id="why-buy-heading">Why Buy Chemicals from A.V. Chemical?</h2>
+        <p>Quality, documentation, and reliability — the A.V. Chemical promise</p>
+      </div>
+      <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap:24px;">
+        <div class="glass-card" style="padding:24px;">
+          <span style="font-size:32px;">📄</span>
+          <h3 style="color:var(--green-dark); margin:10px 0 8px; font-size:1rem;">Complete Documentation</h3>
+          <p style="font-size:0.9rem;">Every product comes with Certificate of Analysis (COA), Material Safety Data Sheet (MSDS), and Technical Data Sheet (TDS).</p>
+        </div>
+        <div class="glass-card" style="padding:24px;">
+          <span style="font-size:32px;">✅</span>
+          <h3 style="color:var(--green-dark); margin:10px 0 8px; font-size:1rem;">Multi-Grade Options</h3>
+          <p style="font-size:0.9rem;">Products available in Food Grade, Pharmaceutical Grade (IP/BP/USP), Industrial Grade, and AR Grade as required.</p>
+        </div>
+        <div class="glass-card" style="padding:24px;">
+          <span style="font-size:32px;">📦</span>
+          <h3 style="color:var(--green-dark); margin:10px 0 8px; font-size:1rem;">Flexible Packaging</h3>
+          <p style="font-size:0.9rem;">Available in multiple pack sizes — from 500g sample packs to 25kg bags and bulk tankers for large-scale production.</p>
+        </div>
+        <div class="glass-card" style="padding:24px;">
+          <span style="font-size:32px;">🚚</span>
+          <h3 style="color:var(--green-dark); margin:10px 0 8px; font-size:1rem;">Fast Delivery</h3>
+          <p style="font-size:0.9rem;">Pan-India delivery with reliable logistics partners. Prompt dispatch from our Mumbai base to all major cities and industrial areas.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -27,54 +77,9 @@
   <section class="cta-strip">
     <div class="container">
       <h2>Can't Find What You're Looking For?</h2>
-      <p style="color: rgba(255,255,255,0.85); margin-bottom: 24px;">Contact us for custom sourcing requirements &mdash; we can procure almost any chemical raw material.</p>
-      <a href="<?php echo $base_url; ?>/contact.php" class="btn btn-dark">Request a Quote</a>
+      <p style="color:rgba(255,255,255,0.85); margin-bottom:24px;">We source custom chemicals on request. Contact us with your specifications.</p>
+      <a href="<?php echo $base_url; ?>/contact" class="btn btn-dark">Request a Product</a>
     </div>
   </section>
-
-  <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    var grid = document.getElementById('categoryCardsGrid');
-    if (!grid) return;
-
-    fetch(window.BASE_URL + '/api/get_products.php')
-      .then(function (r) { return r.json(); })
-      .then(function (resp) {
-        var cats = resp.data || [];
-        if (!cats.length) {
-          grid.innerHTML = '<div class="no-results"><h3>No categories found</h3></div>';
-          return;
-        }
-        grid.innerHTML = '';
-        cats.forEach(function (cat) {
-          var card = document.createElement('a');
-          card.className = 'category-card reveal';
-          card.href = window.BASE_URL + '/category.php?cat=' + encodeURIComponent(cat.id);
-
-          var imgHtml = cat.image
-            ? '<div class="cat-card-img"><img src="' + cat.image + '" alt="' + cat.name + '" loading="lazy"></div>'
-            : '<div class="cat-card-img cat-card-img--fallback">' + cat.icon + '</div>';
-
-          card.innerHTML =
-            imgHtml +
-            '<div class="cat-card-body">' +
-              '<h3>' + cat.name + '</h3>' +
-              '<p class="cat-card-tagline">' + cat.tagline + '</p>' +
-              '<span class="cat-card-count">' + cat.items.length + ' Products</span>' +
-            '</div>' +
-            '<div class="cat-card-arrow">&rarr;</div>';
-          grid.appendChild(card);
-        });
-        setTimeout(function () {
-          grid.querySelectorAll('.reveal').forEach(function (el) {
-            el.classList.add('revealed');
-          });
-        }, 100);
-      })
-      .catch(function () {
-        grid.innerHTML = '<div class="no-results"><h3>Unable to load categories</h3><p>Please refresh the page.</p></div>';
-      });
-  });
-  </script>
 
 <?php include 'includes/footer.php'; ?>

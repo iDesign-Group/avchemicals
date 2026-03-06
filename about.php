@@ -164,18 +164,18 @@
       <div class="team-grid">
         <div class="team-card reveal">
           <div class="team-avatar">VS</div>
-          <h3>Virang Sanghvi</h3>
-          <p class="role">Partner &amp; Director</p>
+          <h3>Deepak Gandhi</h3>
+          <p class="role">Partner</p>
         </div>
         <div class="team-card reveal reveal-delay-1">
           <div class="team-avatar">AS</div>
-          <h3>Aman Sanghvi</h3>
-          <p class="role">Partner &amp; Director</p>
+          <h3>Anshh Shah</h3>
+          <p class="role">Partner</p>
         </div>
         <div class="team-card reveal reveal-delay-2">
           <div class="team-avatar">RM</div>
-          <h3>Rohit Mehta</h3>
-          <p class="role">Operations Manager</p>
+          <h3>Virang Sanghvi</h3>
+          <p class="role">Partner</p>
         </div>
       </div>
     </div>

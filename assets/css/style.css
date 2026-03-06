@@ -390,11 +390,12 @@ section {
 
 /* ---- Flip Cards ---- */
 .flip-cards-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 30px;
-  justify-items: center;
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
+  gap: 30px;
+  max-width: 1240px;
+  margin: 0 auto;
 }
 
 .flip-card {
@@ -402,6 +403,7 @@ section {
   width: 280px;
   height: 320px;
   cursor: pointer;
+  flex-shrink: 0;
 }
 
 .flip-card-inner {

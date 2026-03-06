@@ -14,7 +14,7 @@
     <div class="container">
       <div class="section-heading">
         <h2 id="categories-heading">Browse by Category</h2>
-        <p>Select a category to explore our chemical products in detail</p>
+        <p>Click a category to explore its products in detail</p>
       </div>
       <div id="categoriesGrid" class="category-cards-grid"></div>
       <div id="categoriesError" class="no-results" style="display:none;">
@@ -24,25 +24,8 @@
     </div>
   </section>
 
-  <!-- ====== PRODUCT SEARCH + FILTER ====== -->
-  <section style="background:var(--surface); padding:70px 0;" aria-labelledby="products-filter-heading">
-    <div class="container">
-      <div class="section-heading">
-        <h2 id="products-filter-heading">Search Our Products</h2>
-        <p>Filter by category or search by name to find the exact chemical you need</p>
-      </div>
-      <div class="product-controls">
-        <div class="search-box">
-          <input type="text" id="productSearch" placeholder="Search chemicals, ingredients..." aria-label="Search products">
-        </div>
-        <div class="category-tabs" id="categoryTabs"></div>
-      </div>
-      <div class="products-grid" id="productsGrid"></div>
-    </div>
-  </section>
-
-  <!-- ====== SEO CONTENT ====== -->
-  <section style="background:var(--white); padding:70px 0;" aria-labelledby="why-buy-heading">
+  <!-- ====== WHY BUY ====== -->
+  <section style="background:var(--surface); padding:70px 0;" aria-labelledby="why-buy-heading">
     <div class="container">
       <div class="section-heading">
         <h2 id="why-buy-heading">Why Buy Chemicals from A.V. Chemical?</h2>
@@ -78,7 +61,7 @@
     <div class="container">
       <h2>Can't Find What You're Looking For?</h2>
       <p style="color:rgba(255,255,255,0.85); margin-bottom:24px;">We source custom chemicals on request. Contact us with your specifications.</p>
-      <a href="<?php echo $base_url; ?>/contact" class="btn btn-dark">Request a Product</a>
+      <a href="<?php echo $base_url; ?>/contact.php" class="btn btn-dark">Request a Product</a>
     </div>
   </section>
 

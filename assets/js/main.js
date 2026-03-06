@@ -24,7 +24,6 @@ document.addEventListener('DOMContentLoaded', function () {
         navbar.classList.remove('scrolled');
       }
     });
-    // Trigger on load in case page is already scrolled
     if (window.scrollY > 80) {
       navbar.classList.add('scrolled');
     }
@@ -44,7 +43,6 @@ document.addEventListener('DOMContentLoaded', function () {
       document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
     });
 
-    // Close menu when clicking a nav link
     navLinks.forEach(function (link) {
       link.addEventListener('click', function () {
         hamburger.classList.remove('active');
@@ -54,7 +52,6 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     });
 
-    // Close menu when clicking overlay
     if (navOverlay) {
       navOverlay.addEventListener('click', function () {
         hamburger.classList.remove('active');
@@ -84,19 +81,71 @@ document.addEventListener('DOMContentLoaded', function () {
       revealObserver.observe(el);
     });
   } else {
-    // Fallback: show all
     revealElements.forEach(function (el) {
       el.classList.add('revealed');
     });
+  }
+
+  // ---- Stats Strip Roll Counter ----
+  // Each .stat-item h3 should have data-target="500" data-suffix="+" etc.
+  // The counter rolls up when scrolled into view and resets when scrolled out.
+  var statItems = document.querySelectorAll('.stat-item h3[data-target]');
+
+  function easeOutQuad(t) { return t * (2 - t); }
+
+  function animateCounter(el) {
+    var target   = parseInt(el.getAttribute('data-target'), 10) || 0;
+    var suffix   = el.getAttribute('data-suffix') || '';
+    var prefix   = el.getAttribute('data-prefix') || '';
+    var duration = 1800; // ms
+    var startTime = null;
+
+    // Cancel any previous animation frame
+    if (el._rafId) cancelAnimationFrame(el._rafId);
+
+    function step(timestamp) {
+      if (!startTime) startTime = timestamp;
+      var elapsed  = timestamp - startTime;
+      var progress = Math.min(elapsed / duration, 1);
+      var eased    = easeOutQuad(progress);
+      var current  = Math.floor(eased * target);
+      el.textContent = prefix + current.toLocaleString() + suffix;
+      if (progress < 1) {
+        el._rafId = requestAnimationFrame(step);
+      } else {
+        el.textContent = prefix + target.toLocaleString() + suffix;
+      }
+    }
+
+    el._rafId = requestAnimationFrame(step);
+  }
+
+  function resetCounter(el) {
+    if (el._rafId) cancelAnimationFrame(el._rafId);
+    var prefix = el.getAttribute('data-prefix') || '';
+    var suffix = el.getAttribute('data-suffix') || '';
+    el.textContent = prefix + '0' + suffix;
+  }
+
+  if (statItems.length > 0 && 'IntersectionObserver' in window) {
+    var statsObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+        } else {
+          resetCounter(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    statItems.forEach(function (el) { statsObserver.observe(el); });
   }
 
   // ---- Flip Card Click Toggle (for mobile) ----
   const flipCards = document.querySelectorAll('.flip-card');
   flipCards.forEach(function (card) {
     card.addEventListener('click', function () {
-      // On mobile, toggle flipped class
       if (window.innerWidth <= 768) {
-        // Remove flipped from all other cards in same group
         const parent = card.closest('.flip-cards-grid, .why-grid, .mvv-grid');
         if (parent) {
           parent.querySelectorAll('.flip-card.flipped').forEach(function (other) {
@@ -118,10 +167,7 @@ document.addEventListener('DOMContentLoaded', function () {
         e.preventDefault();
         const navHeight = navbar ? navbar.offsetHeight : 0;
         const targetPos = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
-        window.scrollTo({
-          top: targetPos,
-          behavior: 'smooth'
-        });
+        window.scrollTo({ top: targetPos, behavior: 'smooth' });
       }
     });
   });
@@ -136,20 +182,16 @@ document.addEventListener('DOMContentLoaded', function () {
         backToTop.classList.remove('visible');
       }
     });
-
     backToTop.addEventListener('click', function () {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
 
   // ---- Testimonials Carousel ----
   const carouselTrack = document.querySelector('.carousel-track');
-  const carouselDots = document.querySelectorAll('.carousel-dot');
+  const carouselDots  = document.querySelectorAll('.carousel-dot');
   let currentSlide = 0;
-  let totalSlides = 0;
+  let totalSlides  = 0;
   let carouselInterval;
 
   if (carouselTrack) {
@@ -203,7 +245,6 @@ document.addEventListener('DOMContentLoaded', function () {
         dotsContainer.innerHTML = '';
 
         data.forEach(function (t, i) {
-          // Card
           var card = document.createElement('div');
           card.className = 'testimonial-card';
           card.innerHTML =
@@ -212,28 +253,15 @@ document.addEventListener('DOMContentLoaded', function () {
             '<p class="company">' + t.designation + ', ' + t.company + '</p>';
           track.appendChild(card);
 
-          // Dot
           var dot = document.createElement('button');
           dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
           dot.setAttribute('aria-label', 'Testimonial ' + (i + 1));
           dotsContainer.appendChild(dot);
         });
 
-        // Re-init carousel
         totalSlides = data.length;
         currentSlide = 0;
         var newDots = dotsContainer.querySelectorAll('.carousel-dot');
-        newDots.forEach(function (dot, i) {
-          dot.addEventListener('click', function () {
-            goToSlide(i);
-            resetAutoSlide();
-          });
-        });
-        // Update the reference for goToSlide
-        carouselDots.length = 0; // clear
-        newDots.forEach(function(d) {
-          // We need to rebind; use direct reference instead
-        });
 
         function goToSlide(index) {
           if (index < 0) index = totalSlides - 1;
@@ -257,6 +285,13 @@ document.addEventListener('DOMContentLoaded', function () {
           autoSlide();
         }
 
+        newDots.forEach(function (dot, i) {
+          dot.addEventListener('click', function () {
+            goToSlide(i);
+            resetAutoSlide();
+          });
+        });
+
         goToSlide(0);
         autoSlide();
       })
@@ -265,7 +300,6 @@ document.addEventListener('DOMContentLoaded', function () {
       });
   }
 
-  // Only load testimonials on homepage
   if (document.querySelector('.testimonials')) {
     loadTestimonials();
   }

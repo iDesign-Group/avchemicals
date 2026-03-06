@@ -42,19 +42,19 @@
     <div class="container">
       <div class="stats-grid">
         <div class="stat-item reveal">
-          <h3><span data-count="10" data-suffix="+">0+</span></h3>
+          <h3 data-target="10" data-suffix="+">0+</h3>
           <p>Years Experience</p>
         </div>
         <div class="stat-item reveal reveal-delay-1">
-          <h3><span data-count="500" data-suffix="+">0+</span></h3>
+          <h3 data-target="500" data-suffix="+">0+</h3>
           <p>Products</p>
         </div>
         <div class="stat-item reveal reveal-delay-2">
-          <h3><span data-count="50" data-suffix="+">0+</span></h3>
+          <h3 data-target="50" data-suffix="+">0+</h3>
           <p>Industries Served</p>
         </div>
         <div class="stat-item reveal reveal-delay-3">
-          <h3><span data-count="100" data-suffix="+">0+</span></h3>
+          <h3 data-target="100" data-suffix="+">0+</h3>
           <p>Happy Clients</p>
         </div>
       </div>
@@ -154,7 +154,6 @@
         <p>Trusted raw material supply across 6 major industry verticals</p>
       </div>
       <div class="hex-grid" id="industriesGrid">
-        <!-- Loaded dynamically via AJAX from api/get_industries.php -->
         <noscript>
           <a href="<?php echo $base_url; ?>/industries.php" class="hex-tile">
             <span class="hex-icon">🍽️</span><span class="hex-label">Food & Beverage</span>
